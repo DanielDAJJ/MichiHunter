@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ratbehaviour : MonoBehaviour
+public class RatbehaviourGreen : MonoBehaviour
 {   
     public NavMeshAgent navMesh;
     [SerializeField] Transform goal;
@@ -9,7 +9,6 @@ public class Ratbehaviour : MonoBehaviour
 
      public bool isDead=false;
      private bool goal1,goal2, goal3;   
-     public bool isGreen;
 
      public Transform[] goalPositions;
 
@@ -22,10 +21,7 @@ public class Ratbehaviour : MonoBehaviour
         goalPositions[0]= GameObject.Find("Goal1").GetComponent<Transform>();
         goalPositions[1]= GameObject.Find("Goal2").GetComponent<Transform>();
         goalPositions[2]= GameObject.Find("Goal3").GetComponent<Transform>();
-        
-        isGreen= gameObject.name=="RatVerdePrefab(Clone)" ;
-        
-          
+
     }
 
     
@@ -70,13 +66,9 @@ public class Ratbehaviour : MonoBehaviour
         if (other.CompareTag("Goal"))
         {   
             GameManager.Instance.HumanParasiteLevel();
-            if (isGreen)
-            {
-                 GameManager.Instance.HumanParasiteLevel();
-                 GameManager.Instance.HumanParasiteLevel();
-            }
+            GameManager.Instance.HumanParasiteLevel();
+            GameManager.Instance.HumanParasiteLevel();
             Destroy(this.gameObject);
-            
           
         }    
 
