@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cat_Locomotion : MonoBehaviour
-{
+{   
+    [SerializeField] Transform attackPoint;
+    public LayerMask enemyMask;
     public float jumpHeight;
     public float gravity;
     public float stepDown;
@@ -19,7 +21,9 @@ public class Cat_Locomotion : MonoBehaviour
     Vector2 smoothInput;
     Vector2 inputVelocity;
 
-    float smoothTime = 0.2f;
+    //float smoothTime = 0.2f;
+    float smoothTimeHorizontal = 0.1f;
+    float smoothTimeVertical = 0.1f;
 
     Vector3 rootMotion;
     Vector3 velocity;
@@ -37,17 +41,23 @@ public class Cat_Locomotion : MonoBehaviour
         input.y = Input.GetAxis("Vertical");
 
 
-        
-        smoothInput.x = Mathf.SmoothDamp(smoothInput.x, input.x, ref inputVelocity.x, smoothTime);
-        smoothInput.y = Mathf.SmoothDamp(smoothInput.y, input.y, ref inputVelocity.y, smoothTime);
 
-        
+        smoothInput.x = Mathf.SmoothDamp(smoothInput.x, input.x, ref inputVelocity.x, smoothTimeHorizontal);
+        smoothInput.y = Mathf.SmoothDamp(smoothInput.y, input.y, ref inputVelocity.y, smoothTimeVertical);
+
+
         animator.SetFloat("InputX", smoothInput.x);
         animator.SetFloat("InputY", smoothInput.y);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
+        }
+
+
+        if (Input.GetMouseButtonDown(0) && cc.isGrounded)
+        {
+            CatAttack();
         }
         
         
@@ -78,6 +88,9 @@ public class Cat_Locomotion : MonoBehaviour
 
     private void UpdateOnGround()
     {
+        float horizontalMultiplier = 1.2f; // Ajusta seg�n lo que necesites
+        Vector3 modifiedRootMotion = new Vector3(rootMotion.x * horizontalMultiplier, rootMotion.y, rootMotion.z);
+
         Vector3 stepForwardAmount = rootMotion * groundSpeed;
         Vector3 stepDownAmount = Vector3.down * stepDown;
         
@@ -118,6 +131,14 @@ public class Cat_Locomotion : MonoBehaviour
         }
 
     }
+
+
+    public void CatAttack() // Metodo para el ataque del gato.
+    {
+        animator.SetTrigger("Attack"); 
+        Physics.OverlapSphere(attackPoint.position,3f, enemyMask);
+    }
+
 
     private void SetInAir(float jumpVelocity)
     {
