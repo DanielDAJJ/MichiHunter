@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Goal
+  - Trash1
+  - Trash2
+  - Trash3
   layers:
   - Default
   - TransparentFX
