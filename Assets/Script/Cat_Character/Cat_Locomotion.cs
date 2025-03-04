@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cat_Locomotion : MonoBehaviour
-{
+{   
+    [SerializeField] Transform attackPoint;
+    public LayerMask enemyMask;
     public float jumpHeight;
     public float gravity;
     public float stepDown;
@@ -86,7 +88,7 @@ public class Cat_Locomotion : MonoBehaviour
 
     private void UpdateOnGround()
     {
-        float horizontalMultiplier = 1.2f; // Ajusta según lo que necesites
+        float horizontalMultiplier = 1.2f; // Ajusta segï¿½n lo que necesites
         Vector3 modifiedRootMotion = new Vector3(rootMotion.x * horizontalMultiplier, rootMotion.y, rootMotion.z);
 
         Vector3 stepForwardAmount = rootMotion * groundSpeed;
@@ -134,6 +136,7 @@ public class Cat_Locomotion : MonoBehaviour
     public void CatAttack() // Metodo para el ataque del gato.
     {
         animator.SetTrigger("Attack"); 
+        Physics.OverlapSphere(attackPoint.position,3f, enemyMask);
     }
 
 

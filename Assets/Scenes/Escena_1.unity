@@ -2123,6 +2123,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4588386968346820, guid: 0774b3aa9983d294e859db07a1f79702, type: 3}
   m_PrefabInstance: {fileID: 1499436685}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1532294450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1532294451}
+  m_Layer: 0
+  m_Name: Attack Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1532294451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532294450}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.146, z: 0.343}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8809708468183189910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1547140714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7764671232503108415, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
@@ -2141,7 +2172,7 @@ GameObject:
   - component: {fileID: 2143478701}
   m_Layer: 0
   m_Name: Goal1
-  m_TagString: Untagged
+  m_TagString: Trash1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10863,13 +10894,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Cat_White
       objectReference: {fileID: 0}
+    - target: {fileID: 4965966103138441255, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6627061199410983108, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
       propertyPath: jumpHeight
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 6627061199410983108, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
+      propertyPath: enemyMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2003023825508761807, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1532294451}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
 --- !u!1 &3571721220781920198
