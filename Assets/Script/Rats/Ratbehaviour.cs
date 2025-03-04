@@ -7,8 +7,9 @@ public class Ratbehaviour : MonoBehaviour
     [SerializeField] Transform goal;
      Animator animator;
 
-     private bool isDead=false;
+     public bool isDead=false;
      private bool goal1,goal2, goal3;   
+     public bool isGreen;
 
      public Transform[] goalPositions;
 
@@ -21,7 +22,10 @@ public class Ratbehaviour : MonoBehaviour
         goalPositions[0]= GameObject.Find("Goal1").GetComponent<Transform>();
         goalPositions[1]= GameObject.Find("Goal2").GetComponent<Transform>();
         goalPositions[2]= GameObject.Find("Goal3").GetComponent<Transform>();
-
+        
+        isGreen= gameObject.name=="RatVerdePrefab(Clone)" ;
+        
+          
     }
 
     
@@ -52,9 +56,9 @@ public class Ratbehaviour : MonoBehaviour
 
         if (isDead)
         {
-            navMesh.isStopped=true;
-            
-            gameObject.GetComponent<Collider>().enabled=false;
+           gameObject.GetComponent<NavMeshAgent>().enabled=false;
+           animator.SetBool("isDead",true);
+           gameObject.GetComponent<Collider>().enabled=false;
 
         }
 
@@ -64,10 +68,16 @@ public class Ratbehaviour : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Goal"))
-        {
+        {   
+            GameManager.Instance.HumanParasiteLevel();
+            if (isGreen)
+            {
+                 GameManager.Instance.HumanParasiteLevel();
+                 GameManager.Instance.HumanParasiteLevel();
+            }
             Destroy(this.gameObject);
-            animator.SetBool("isDead",true);
-
+            
+          
         }    
 
            if (other.CompareTag("Trash1"))
@@ -87,13 +97,7 @@ public class Ratbehaviour : MonoBehaviour
             goal3=true;
         }      
 
-           if (other.CompareTag("Player"))
-        {
-    
-            animator.SetBool("isDead",true);
-            isDead=true;
-
-        }     
+     
     }
 
 

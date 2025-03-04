@@ -258,12 +258,13 @@ GameObject:
   - component: {fileID: 315252857}
   - component: {fileID: 315252859}
   - component: {fileID: 315252858}
+  - component: {fileID: 315252860}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &315252857
 Transform:
@@ -330,6 +331,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315252856}
   m_Mesh: {fileID: 4300000, guid: 128e1bebda9259540a4687af1f24d51d, type: 3}
+--- !u!65 &315252860
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315252856}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!1 &354953931
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +387,7 @@ MonoBehaviour:
   - {fileID: 577217175}
   timeToSpawn: 5
   ratPrefab: {fileID: 9155650581646474337, guid: a933e7aabd3234fd29456ebd3303a92e, type: 3}
+  ratGreenPrefab: {fileID: 5660572256835606888, guid: f40c2ed120cb14b02804c1109d051560, type: 3}
 --- !u!4 &354953933
 Transform:
   m_ObjectHideFlags: 0
@@ -381,6 +404,7 @@ Transform:
   - {fileID: 2143478700}
   - {fileID: 718793804}
   - {fileID: 577217175}
+  - {fileID: 770858622}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &378406927
@@ -506,6 +530,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fa4016dfd9d4dc1a3b56355ad699c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humanLife: 0
+  playerParasiteLevel: 0
+  humanParasiteLevel: 0
+  gameOver: 0
 --- !u!1001 &491105380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -574,12 +602,13 @@ GameObject:
   - component: {fileID: 532616083}
   - component: {fileID: 532616085}
   - component: {fileID: 532616084}
+  - component: {fileID: 532616086}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &532616083
 Transform:
@@ -646,6 +675,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532616082}
   m_Mesh: {fileID: 4300000, guid: 128e1bebda9259540a4687af1f24d51d, type: 3}
+--- !u!65 &532616086
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532616082}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!4 &536298103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4712246713671880, guid: 43223205572f7034585ff939a4ce68f3, type: 3}
@@ -731,7 +781,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.63, y: 0.05, z: -0.39}
 --- !u!1 &648459927
 GameObject:
   m_ObjectHideFlags: 3
@@ -1038,7 +1088,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.42}
 --- !u!1001 &758812105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1222,12 +1272,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770858617}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.61, y: 0.8133, z: -22.5203}
-  m_LocalScale: {x: 1, y: 0.9396, z: 3.2241902}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.4544716, y: -1.4306535, z: 1.926281}
+  m_LocalScale: {x: 1, y: 0.9396, z: 0.7764495}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 354953933}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &818198351
 GameObject:
@@ -1383,7 +1433,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2779277, y: 0.000000033524774, z: -0.000000009699607, w: 0.96060205}
+  m_LocalRotation: {x: 0.2779277, y: -0.000000028628177, z: 0.000000008282893, w: 0.960602}
   m_LocalPosition: {x: 40.24, y: 3.025, z: -21.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1708,6 +1758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1263032660}
   - component: {fileID: 1263032661}
+  - component: {fileID: 1263032662}
   m_Layer: 0
   m_Name: FreeLook Camera
   m_TagString: Untagged
@@ -1838,6 +1889,36 @@ MonoBehaviour:
   - {fileID: 1489592021}
   - {fileID: 1343811095}
   - {fileID: 378406929}
+--- !u!114 &1263032662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263032659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: Player
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 0
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1 &1320424546
 GameObject:
   m_ObjectHideFlags: 3
@@ -2320,37 +2401,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4588386968346820, guid: 0774b3aa9983d294e859db07a1f79702, type: 3}
   m_PrefabInstance: {fileID: 1499436685}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1532294450
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1532294451}
-  m_Layer: 0
-  m_Name: Attack Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1532294451
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532294450}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.116, z: 0.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8809708468183189910}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1539629010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2736,7 +2786,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.06, z: 0.11}
 --- !u!4 &5534232175967774
 Transform:
   m_ObjectHideFlags: 0
@@ -6377,12 +6427,13 @@ GameObject:
   - component: {fileID: 1235779877553661976}
   - component: {fileID: 1244106176654605908}
   - component: {fileID: 1253435143033672598}
+  - component: {fileID: 1253435143033672599}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!33 &1244106176654605908
 MeshFilter:
@@ -6434,6 +6485,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1253435143033672599
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238543801940982148}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!33 &1262596341907203517
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7608,13 +7680,35 @@ GameObject:
   - component: {fileID: 1723528861747584419}
   - component: {fileID: 1697462229901609967}
   - component: {fileID: 1704739458243569197}
+  - component: {fileID: 1728636895061363776}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!65 &1728636895061363776
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728636895061363775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!4 &1766283330229843129
 Transform:
   m_ObjectHideFlags: 0
@@ -8152,12 +8246,13 @@ GameObject:
   - component: {fileID: 2006140171193051158}
   - component: {fileID: 1995817439231671898}
   - component: {fileID: 1987347494219043736}
+  - component: {fileID: 2006140171193051159}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2006140171193051158
 Transform:
@@ -8174,6 +8269,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6733222519841404705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2006140171193051159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999971645565385098}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!23 &2019363900322415065
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8488,12 +8604,13 @@ GameObject:
   - component: {fileID: 2236362428989637269}
   - component: {fileID: 2264338087628870873}
   - component: {fileID: 2254720222455871771}
+  - component: {fileID: 2264338087628870874}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &2246518278646826067
 GameObject:
@@ -8587,6 +8704,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2242591958384530185}
   m_Mesh: {fileID: 4300000, guid: 128e1bebda9259540a4687af1f24d51d, type: 3}
+--- !u!65 &2264338087628870874
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242591958384530185}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!23 &2268748677145551803
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8744,12 +8882,13 @@ GameObject:
   - component: {fileID: 2321455927452667236}
   - component: {fileID: 2329165181491223336}
   - component: {fileID: 2338546894380250858}
+  - component: {fileID: 2338546894380250859}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2321455927452667236
 Transform:
@@ -8816,6 +8955,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2338546894380250859
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315159837406125304}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!23 &2342491745210274248
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9038,12 +9198,13 @@ GameObject:
   - component: {fileID: 2386456239985614309}
   - component: {fileID: 2412744091372604329}
   - component: {fileID: 2404115782384576107}
+  - component: {fileID: 2412744091372604330}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2386456239985614309
 Transform:
@@ -9110,6 +9271,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380164535257795705}
   m_Mesh: {fileID: 4300000, guid: 128e1bebda9259540a4687af1f24d51d, type: 3}
+--- !u!65 &2412744091372604330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380164535257795705}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!1 &2416316649193720120
 GameObject:
   m_ObjectHideFlags: 0
@@ -11391,28 +11573,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Cat_White
       objectReference: {fileID: 0}
-    - target: {fileID: 4965966103138441255, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6627061199410983108, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
-      propertyPath: jumpHeight
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6627061199410983108, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
-      propertyPath: attackPoint
-      value: 
-      objectReference: {fileID: 1532294451}
-    - target: {fileID: 6627061199410983108, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
-      propertyPath: enemyMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2003023825508761807, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1532294451}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c286173a8d3e5c447858ea3e54c93ea2, type: 3}
 --- !u!1 &3571721220781920198
@@ -11720,12 +11883,13 @@ GameObject:
   - component: {fileID: 3618947477587889084}
   - component: {fileID: 3628979046200155632}
   - component: {fileID: 3637310160688787506}
+  - component: {fileID: 3637310160688787507}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3618947477587889084
 Transform:
@@ -11792,6 +11956,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3637310160688787507
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616245126221879840}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!1 &3688259180963723830
 GameObject:
   m_ObjectHideFlags: 0
@@ -13862,13 +14047,35 @@ GameObject:
   - component: {fileID: 4163460863529508287}
   - component: {fileID: 4152944620329651187}
   - component: {fileID: 4144668762714465841}
+  - component: {fileID: 4166388063237803044}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!65 &4166388063237803044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166388063237803043}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!4 &4172878296599516219
 Transform:
   m_ObjectHideFlags: 0
@@ -14135,12 +14342,13 @@ GameObject:
   - component: {fileID: 4230560173949939829}
   - component: {fileID: 4237980338431190585}
   - component: {fileID: 4248794195300011003}
+  - component: {fileID: 4248794195300011004}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4230560173949939829
 Transform:
@@ -14207,6 +14415,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4248794195300011004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4225386173770375657}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!33 &4256969189298250177
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14268,12 +14497,13 @@ GameObject:
   - component: {fileID: 4266689866963173326}
   - component: {fileID: 4275041303436044674}
   - component: {fileID: 4284352664712709184}
+  - component: {fileID: 4284352664712709185}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &4265317883541882085
 MeshRenderer:
@@ -14500,6 +14730,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4284352664712709185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4260472958327483986}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!33 &4291325956467356737
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17030,13 +17281,35 @@ GameObject:
   - component: {fileID: 5182414783267176177}
   - component: {fileID: 5156074497705240765}
   - component: {fileID: 5163628858736723327}
+  - component: {fileID: 5187527262433587054}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!65 &5187527262433587054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5187527262433587053}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!23 &5260859803702264639
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17098,12 +17371,13 @@ GameObject:
   - component: {fileID: 5277394316299728617}
   - component: {fileID: 5285183700596777125}
   - component: {fileID: 5295764718649068903}
+  - component: {fileID: 5295764718649068904}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5277394316299728617
 Transform:
@@ -17146,13 +17420,35 @@ GameObject:
   - component: {fileID: 5278521958632536241}
   - component: {fileID: 5270547988313321213}
   - component: {fileID: 5260859803702264639}
+  - component: {fileID: 5284830710748244270}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!65 &5284830710748244270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284830710748244269}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!33 &5285183700596777125
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17203,6 +17499,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5295764718649068904
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272444599278282613}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!4 &5513475674726571752
 Transform:
   m_ObjectHideFlags: 0
@@ -18998,12 +19315,13 @@ GameObject:
   - component: {fileID: 6097952928659084427}
   - component: {fileID: 6108547236909777607}
   - component: {fileID: 6116732986100363013}
+  - component: {fileID: 6116732986100363014}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!33 &6108547236909777607
 MeshFilter:
@@ -19055,6 +19373,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6116732986100363014
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104112144576038167}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!4 &6137449721714622099
 Transform:
   m_ObjectHideFlags: 0
@@ -21995,13 +22334,35 @@ GameObject:
   - component: {fileID: 7162877355494225901}
   - component: {fileID: 7134277647757517217}
   - component: {fileID: 7144082155021667427}
+  - component: {fileID: 7165729792135882354}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!65 &7165729792135882354
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165729792135882353}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!1 &7220029712855655871
 GameObject:
   m_ObjectHideFlags: 0
@@ -22274,12 +22635,13 @@ GameObject:
   - component: {fileID: 7276813404854760887}
   - component: {fileID: 7249040052861248507}
   - component: {fileID: 7259566082493582905}
+  - component: {fileID: 7276813404854760888}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7276813404854760887
 Transform:
@@ -22296,6 +22658,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6733222519841404705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7276813404854760888
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271626172284691499}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!4 &7283078692874448240
 Transform:
   m_ObjectHideFlags: 0
@@ -23243,12 +23626,13 @@ GameObject:
   - component: {fileID: 7615525143946607826}
   - component: {fileID: 7623023502459316894}
   - component: {fileID: 7632616319410767708}
+  - component: {fileID: 7632616319410767709}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7619884748808615100
 Transform:
@@ -23323,6 +23707,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7632616319410767709
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7618306628296863054}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!23 &7637219881723826820
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25152,13 +25557,35 @@ GameObject:
   - component: {fileID: 8774417145893391954}
   - component: {fileID: 8764375815759992862}
   - component: {fileID: 8757172753007162844}
+  - component: {fileID: 8778240943721537487}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!65 &8778240943721537487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778240943721537486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!23 &8779563870677750455
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25311,13 +25738,35 @@ GameObject:
   - component: {fileID: 8891404695841280470}
   - component: {fileID: 8863420311025518490}
   - component: {fileID: 8874302011189111384}
+  - component: {fileID: 8895439603750748235}
   m_Layer: 0
   m_Name: SM_Bld_House_Interior_Ceiling_01 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!65 &8895439603750748235
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895439603750748234}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0, z: 2.5}
+  m_Center: {x: -1.25, y: 2.8999999, z: -1.25}
 --- !u!215 &8906739358343451085
 ReflectionProbe:
   m_ObjectHideFlags: 0
@@ -25763,5 +26212,4 @@ SceneRoots:
   - {fileID: 6923741256464280105}
   - {fileID: 384071903}
   - {fileID: 183524740}
-  - {fileID: 770858622}
   - {fileID: 354953933}

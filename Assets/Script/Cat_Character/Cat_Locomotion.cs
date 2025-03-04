@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cat_Locomotion : MonoBehaviour
 {   
     [SerializeField] Transform attackPoint;
     public LayerMask enemyMask;
+
+    public int playerParasitelevel;
+    Ratbehaviour rat;
+    
     public float jumpHeight;
     public float gravity;
     public float stepDown;
@@ -136,7 +141,14 @@ public class Cat_Locomotion : MonoBehaviour
     public void CatAttack() // Metodo para el ataque del gato.
     {
         animator.SetTrigger("Attack"); 
-        Physics.OverlapSphere(attackPoint.position,3f, enemyMask);
+        Collider[] enemies= Physics.OverlapSphere(attackPoint.position,0.3f, enemyMask);
+        foreach (Collider enemy in enemies)
+        {
+            enemy.GetComponent<Ratbehaviour>().isDead=true;
+            GameManager.Instance.PlayerParasiteLevel();
+        }
+        playerParasitelevel=GameManager.Instance.playerParasiteLevel;
+
     }
 
 
@@ -148,7 +160,11 @@ public class Cat_Locomotion : MonoBehaviour
         animator.SetBool("IsJumping", true);
     }
 
-    
+    void OnDrawGizmos()
+    {
+        Gizmos.color=Color.white;
+        Gizmos.DrawSphere(attackPoint.position,0.3f);
+    }
 }
 
 
