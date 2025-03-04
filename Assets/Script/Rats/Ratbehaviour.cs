@@ -52,9 +52,9 @@ public class Ratbehaviour : MonoBehaviour
 
         if (isDead)
         {
-            //navMesh.isStopped=true;
-            gameObject.GetComponent<NavMeshAgent>().enabled=false;
-            gameObject.GetComponent<NavMeshObstacle>().enabled=true;
+            navMesh.isStopped=true;
+            
+            gameObject.GetComponent<Collider>().enabled=false;
 
         }
 
