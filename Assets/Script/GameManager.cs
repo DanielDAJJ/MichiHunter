@@ -7,7 +7,10 @@ public class GameManager : MonoBehaviour
     public int humanLife;
     public int playerParasiteLevel;
     public int humanParasiteLevel;
+    public int wave;
     public bool gameOver;
+    public bool gameWin;
+    public bool gameoverSoubnd=false;
     public static GameManager Instance;
 
     void Awake()
@@ -32,18 +35,26 @@ public class GameManager : MonoBehaviour
     {
         if (humanParasiteLevel>=10)
         {
-            GameOver();    
+            GameOver();
+            if(!gameoverSoubnd)
+            {
+                print("sonido");    
+            AudioManager.instance.PlaySound(AudioManager.instance.catDeathSound);  
+            gameoverSoubnd=true;
+            } 
         }
     }
     public void GameOver()
     {
         print("GameOver");
         gameOver=true;
+        wave=0;
     }
 
     public void PlayerParasiteLevel()
     {
         playerParasiteLevel++;
+        
     }
     
     public void HumanParasiteLevel()
@@ -51,6 +62,17 @@ public class GameManager : MonoBehaviour
         humanParasiteLevel++;
     }
     
+    public void WaveCount()
+    {
+        wave++;
+    }
+    
+     public void GameWin()
+     {
+        gameWin=true;
+        print("You Win");
 
-   
+     }   
+
+
 }

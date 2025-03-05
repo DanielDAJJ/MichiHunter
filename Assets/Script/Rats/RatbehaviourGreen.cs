@@ -1,8 +1,7 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ratbehaviour : MonoBehaviour
+public class RatbehaviourGreen : MonoBehaviour
 {   
     public NavMeshAgent navMesh;
     [SerializeField] Transform goal;
@@ -10,11 +9,8 @@ public class Ratbehaviour : MonoBehaviour
 
      public bool isDead=false;
      private bool goal1,goal2, goal3;   
-     public bool isGreen;
 
      public Transform[] goalPositions;
-
-    private bool deathSoundPlayed = false;
 
 
     void Start()
@@ -25,10 +21,7 @@ public class Ratbehaviour : MonoBehaviour
         goalPositions[0]= GameObject.Find("Goal1").GetComponent<Transform>();
         goalPositions[1]= GameObject.Find("Goal2").GetComponent<Transform>();
         goalPositions[2]= GameObject.Find("Goal3").GetComponent<Transform>();
-        
-        isGreen= gameObject.name=="RatVerdePrefab(Clone)" ;
-        
-          
+
     }
 
     
@@ -59,41 +52,23 @@ public class Ratbehaviour : MonoBehaviour
 
         if (isDead)
         {
-            if (!deathSoundPlayed)
-            {
-                StartCoroutine(PlayDeathSoundWithDelay(0.3f));
-                deathSoundPlayed = true;
-            }
-            
            gameObject.GetComponent<NavMeshAgent>().enabled=false;
            animator.SetBool("isDead",true);
            gameObject.GetComponent<Collider>().enabled=false;
-           Destroy(this.gameObject,5);
 
         }
 
         
     }
 
-    IEnumerator PlayDeathSoundWithDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        AudioManager.instance.PlaySound(AudioManager.instance.ratDeathSound);
-    }
-
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Goal"))
         {   
             GameManager.Instance.HumanParasiteLevel();
-            if (isGreen)
-            {
-                 GameManager.Instance.HumanParasiteLevel();
-                 GameManager.Instance.HumanParasiteLevel();
-            }
+            GameManager.Instance.HumanParasiteLevel();
+            GameManager.Instance.HumanParasiteLevel();
             Destroy(this.gameObject);
-            
           
         }    
 
