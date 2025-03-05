@@ -34,6 +34,8 @@ public class Cat_Locomotion : MonoBehaviour
     Vector3 velocity;
     bool isJumping;
 
+    [SerializeField] ParticleSystem confettiParticles;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -140,13 +142,24 @@ public class Cat_Locomotion : MonoBehaviour
 
     public void CatAttack() // Metodo para el ataque del gato.
     {
-        animator.SetTrigger("Attack"); 
+        animator.SetTrigger("Attack");
+        AudioManager.instance.PlaySound(AudioManager.instance.attackSound);
+
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position,0.3f, enemyMask);
+        bool ratKilled = false;
+
         foreach (Collider enemy in enemies)
         {
             enemy.GetComponent<Ratbehaviour>().isDead=true;
             GameManager.Instance.PlayerParasiteLevel();
+            ratKilled = true;
         }
+
+        if (ratKilled && confettiParticles != null)
+        {
+            confettiParticles.Play();
+        }
+
         playerParasitelevel = GameManager.Instance.playerParasiteLevel;
 
     }
