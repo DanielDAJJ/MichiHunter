@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (humanParasiteLevel>=10)
-        {
+        {   
+            humanParasiteLevel=0;
             GameOver();
             if(!gameoverSoubnd)
             {
