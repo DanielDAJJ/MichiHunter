@@ -9,6 +9,7 @@ TagManager:
   - Trash2
   - Trash3
   - GreenRat
+  - LoreScreen
   layers:
   - Default
   - TransparentFX

@@ -1,9 +1,9 @@
-﻿using System;
+﻿# if UNITY_EDITOR
+using System;
 using System.Collections;
 using System.Collections.Generic;
-#if UNITY_EDITOR 
 using UnityEditor;
-using UnityEngine; 
+using UnityEngine;
 
 public class QuickAnimSetting : EditorWindow
 {
