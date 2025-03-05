@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
     public Transform[] goalPositions;
     float timeCount;
     public float timeToSpawn;
+
+    public float waveTime;
     private int ratCount;
     public GameObject ratPrefab;
     public GameObject ratGreenPrefab;
@@ -17,9 +19,9 @@ public class SpawnManager : MonoBehaviour
     }
 
     void Update()
-    {   
+    {       
         timeCount+=Time.deltaTime;
-        if(timeCount>timeToSpawn)//añadir un gamemanager.instance gameStarted; 
+        if(timeCount>timeToSpawn)
         {
            int x= Random.Range(0,goalPositions.Length);     
            Instantiate(ratPrefab,goalPositions[x].transform.position,ratPrefab.transform.rotation); 
@@ -31,6 +33,27 @@ public class SpawnManager : MonoBehaviour
              ratCount=0;
            }
         }
+
+        waveTime+=Time.deltaTime;
+        if (waveTime<=60f)
+        {
+            timeToSpawn=6f;
+        }
+        else if (waveTime<120f)
+        {
+            timeToSpawn=4f;
+
+        }
+        else if (waveTime<180f)
+        {
+            timeToSpawn=3.5f;
+
+        }
+        else
+        {
+            GameManager.Instance.GameWin();
+        }
+
     }
 }
 

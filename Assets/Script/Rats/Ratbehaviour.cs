@@ -68,6 +68,7 @@ public class Ratbehaviour : MonoBehaviour
            gameObject.GetComponent<NavMeshAgent>().enabled=false;
            animator.SetBool("isDead",true);
            gameObject.GetComponent<Collider>().enabled=false;
+           Destroy(this.gameObject,5);
 
         }
 
