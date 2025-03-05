@@ -6,12 +6,12 @@ public class UiManager : MonoBehaviour
 {
     public GameObject menuUI;
     public GameObject player;
+    [SerializeField] GameObject loreScreen;
     void Start()
     {
+        loreScreen.SetActive(false);
         Time.timeScale = 0;
         DisablePlayerControl();
-
-
     }
     void Update()
     {
@@ -37,6 +37,18 @@ public class UiManager : MonoBehaviour
         {
             player.GetComponent<Cat_Locomotion>().enabled = true;
             player.GetComponent<CharacterAiming>().enabled = true;
+        }
+    }
+    public void LoreScreen()
+    {
+        if (loreScreen != null)
+        {
+            loreScreen.SetActive(true);
+            Debug.Log("LoreScreen activada");
+        }
+        else
+        {
+            Debug.LogError("loreScreen no está asignado en el Inspector.");
         }
     }
 }
