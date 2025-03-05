@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +13,8 @@ public class Ratbehaviour : MonoBehaviour
      public bool isGreen;
 
      public Transform[] goalPositions;
+
+    private bool deathSoundPlayed = false;
 
 
     void Start()
@@ -56,14 +59,28 @@ public class Ratbehaviour : MonoBehaviour
 
         if (isDead)
         {
+            if (!deathSoundPlayed)
+            {
+                StartCoroutine(PlayDeathSoundWithDelay(0.3f));
+                deathSoundPlayed = true;
+            }
+            
            gameObject.GetComponent<NavMeshAgent>().enabled=false;
            animator.SetBool("isDead",true);
            gameObject.GetComponent<Collider>().enabled=false;
+           Destroy(this.gameObject,5);
 
         }
 
         
     }
+
+    IEnumerator PlayDeathSoundWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AudioManager.instance.PlaySound(AudioManager.instance.ratDeathSound);
+    }
+
 
     void OnTriggerEnter(Collider other)
     {
