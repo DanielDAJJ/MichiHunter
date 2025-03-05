@@ -9,6 +9,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject loreScreen;
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         loreScreen.SetActive(false);
         Time.timeScale = 0;
         DisablePlayerControl();
@@ -21,6 +23,8 @@ public class UiManager : MonoBehaviour
     {
         Time.timeScale = 1;
         menuUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         EnablePlayerControl();
     }
     void DisablePlayerControl()
@@ -29,6 +33,7 @@ public class UiManager : MonoBehaviour
         {
             player.GetComponent<Cat_Locomotion>().enabled = false;
             player.GetComponent<CharacterAiming>().enabled = false;
+            Debug.Log("Se han desativado los controles del player");
         }
     }
     void EnablePlayerControl()
