@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip ratScream;
     public AudioClip meow;
     public AudioClip backgroundMusic;
+    private float sfxVolume = 1f;
+    private bool isMuted = false;
 
     private AudioSource audioSource;//Para acceder el audiosource desde el código
 
@@ -45,5 +47,21 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = backgroundMusic;
         audioSource.loop = true;
         audioSource.Play();
+    }
+    public void SetMusicVolume(float volume)
+    {
+        if (!isMuted)
+        {
+            audioSource.volume = volume;
+        }
+    }
+    public void SetSFXVolume(float volume)
+    {
+        sfxVolume = volume;
+    }
+    public void SetMute(bool mute)
+    {
+        isMuted = mute;
+        audioSource.mute = mute;
     }
 }

@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
         print("GameOver");
         gameOver=true;
         wave=0;
+        if (UiManager.Instance != null)
+        {
+            UiManager.Instance.ShowGameOverScreen();
+        }
     }
 
     public void PlayerParasiteLevel()
