@@ -141,13 +141,13 @@ public class Cat_Locomotion : MonoBehaviour
     public void CatAttack() // Metodo para el ataque del gato.
     {
         animator.SetTrigger("Attack"); 
-        Collider[] enemies= Physics.OverlapSphere(attackPoint.position,0.3f, enemyMask);
+        Collider[] enemies = Physics.OverlapSphere(attackPoint.position,0.3f, enemyMask);
         foreach (Collider enemy in enemies)
         {
             enemy.GetComponent<Ratbehaviour>().isDead=true;
             GameManager.Instance.PlayerParasiteLevel();
         }
-        playerParasitelevel=GameManager.Instance.playerParasiteLevel;
+        playerParasitelevel = GameManager.Instance.playerParasiteLevel;
 
     }
 
