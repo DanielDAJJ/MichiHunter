@@ -62,7 +62,7 @@ public class Cat_Locomotion : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonDown(0) && cc.isGrounded)
+        if (Input.GetMouseButtonDown(0))
         {
             CatAttack();
         }
